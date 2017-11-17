@@ -1,9 +1,7 @@
 #!/bin/bash
-#
-# This script will create a bootable ISO image from the installer application for
-# - El Capitan (10.11)
-# - Sierra (10.12) macOS
-# - High Sierra (10.13) macOS
+# This script will create a bootable ISO image from the installer application for OSX / macOS
+
+set -e
 
 
 #
@@ -158,7 +156,7 @@ function installerExists()
 # Main script code
 #
 # Eject installer disk in case it was opened after download from App Store
-hdiutil info | grep /dev/disk | grep partition | cut -f 1 | xargs --no-run-if-empty hdiutil detach -force
+#hdiutil info | grep /dev/disk | grep partition | cut -f 1 | xargs --no-run-if-empty hdiutil detach -force
 
 # See if we can find an elligible installer.
 # If successful, then create the iso file from the installer.
